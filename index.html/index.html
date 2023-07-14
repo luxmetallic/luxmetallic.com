@@ -110,11 +110,12 @@
     // Get the contact information
     var name = "Mr Samer Mohammad";
     var phoneNumber = "+97150509992";
-    var whatsappNumber = "+97148328892";
+    var phoneNumber = "+97148328892";
+    var whatsappNumber = "+1234567890";
     var email = "info@luxmetallic.com";
     var instagram = "https://www.instagram.com/luxmetallic/";
     var companyName = "Luxmetallic";
-
+    var websiteUrl = "https://www.luxmetallic.com";
 
 
     var vCard = `BEGIN:VCARD
@@ -129,25 +130,10 @@ X-SOCIALPROFILE;TYPE=INSTAGRAM:${instagram}
 URL:${websiteUrl}
 END:VCARD`;
 
- // Create a Blob object for the vCard content
-    var blob = new Blob([vCard], { type: 'text/vcard' });
+    var dataUrl = "data:text/vcard;charset=utf-8," + encodeURIComponent(vCard);
 
-    // Create a temporary URL for the Blob object
-    var url = URL.createObjectURL(blob);
-
-    // Create a link element for downloading the vCard
-    var link = document.createElement('a');
-    link.href = url;
-    link.download = 'contact.vcf';
-
-    // Trigger the download by clicking the link
-    link.click();
-
-    // Cleanup: Revoke the temporary URL
-    URL.revokeObjectURL(url);
-    }
+    window.open(dataUrl);
   }
-
 </script>
 
 
